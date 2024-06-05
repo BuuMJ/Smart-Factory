@@ -104,15 +104,18 @@ class Home extends StatelessWidget {
                               const SizedBox(
                                 height: 8,
                               ),
-                              span(notificationData[index].machineCode),
+                              span('Mã máy: ',
+                                  notificationData[index].machineCode),
                               const SizedBox(
                                 height: 8,
                               ),
-                              span(notificationData[index].maintenanceDate),
+                              span('Ngày bảo trì: ',
+                                  notificationData[index].maintenanceDate),
                               const SizedBox(
                                 height: 8,
                               ),
-                              span(notificationData[index].content),
+                              span('Nội dung: ',
+                                  notificationData[index].content),
                             ],
                           ),
                           trailing: ElevatedButton(
@@ -156,7 +159,7 @@ class Home extends StatelessWidget {
     );
   }
 
-  RichText span(String nameObj) {
+  RichText span(String title, String nameObj) {
     return RichText(
       text: TextSpan(
         style: const TextStyle(
@@ -164,8 +167,8 @@ class Home extends StatelessWidget {
           color: Colors.black,
         ),
         children: [
-          const TextSpan(
-            text: 'Mã máy: ',
+          TextSpan(
+            text: title,
           ),
           TextSpan(
             text: nameObj, // Giá trị động từ notificationData
