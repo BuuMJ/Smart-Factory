@@ -4,44 +4,42 @@ import 'package:smart_factory/constants/styles.dart';
 
 class HeaderApp extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-
-  const HeaderApp({
-    super.key,
-    required this.title,
-  });
+  final Icon? icon;
+  final VoidCallback? onPressed;
+  const HeaderApp({super.key, required this.title, this.icon, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      centerTitle: true,
-      backgroundColor: bgColor,
-      toolbarHeight: 120,
-      leading: IconButton(
-        icon: const Icon(
-          Icons.arrow_back_ios_new_rounded,
-          color: secondColor,
-          size: AppStyles.sizeIconHeader,
-        ),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-      ),
-      title: Text(
-        title.toUpperCase(),
-        style: const TextStyle(
-            fontSize: 25, fontWeight: FontWeight.bold, color: mainColor),
-      ),
-      actions: [
+    List<Widget> actions = [];
+
+    if (icon != null) {
+      actions.add(
         IconButton(
-          icon: const Icon(
-            Icons.notifications,
-            color: secondColor,
-            size: AppStyles.sizeIconHeader, // Màu của icon thông báo
-          ),
-          onPressed: () {},
+          icon: icon!,
+          onPressed: onPressed,
         ),
-      ],
-    );
+      );
+    }
+    return AppBar(
+        centerTitle: true,
+        backgroundColor: bgColor,
+        toolbarHeight: 120,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: secondColor,
+            size: AppStyles.sizeIconHeader,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          title.toUpperCase(),
+          style: const TextStyle(
+              fontSize: 25, fontWeight: FontWeight.bold, color: mainColor),
+        ),
+        actions: actions);
   }
 
   @override

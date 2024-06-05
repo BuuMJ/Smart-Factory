@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_factory/components/HeaderApp.dart';
 import 'package:smart_factory/components/NavbarInforUser.dart';
 import 'package:smart_factory/constants/colors.dart';
+import 'package:smart_factory/constants/styles.dart';
 
 class Data extends StatelessWidget {
   const Data({super.key});
@@ -26,7 +27,17 @@ class Data extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      appBar: const HeaderApp(title: 'Đồng Bộ Dữ Liệu'),
+      appBar: HeaderApp(
+        title: 'Đồng Bộ Dữ Liệu',
+        icon: const Icon(
+          Icons.notifications,
+          color: secondColor,
+          size: AppStyles.sizeIconHeader,
+        ),
+        onPressed: () {
+          print('aaaa');
+        },
+      ),
       body: Container(
         color: bgColor,
         height: double.infinity,
