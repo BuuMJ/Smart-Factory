@@ -91,7 +91,7 @@ class Home extends StatelessWidget {
                         margin: const EdgeInsets.only(bottom: 12),
                         child: ListTile(
                           title: Text(
-                            'Title: ${notificationData[index].title}',
+                            notificationData[index].title,
                             style: const TextStyle(
                               color: mainColor,
                               fontSize: 22,
