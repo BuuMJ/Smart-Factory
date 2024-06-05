@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_factory/components/GardientButton.dart';
 import 'package:smart_factory/constants/colors.dart';
-import 'package:smart_factory/pages/home.dart';
+import 'package:smart_factory/routes/routes.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -61,8 +61,7 @@ class Login extends StatelessWidget {
               child: Gardientbutton(
                 text: 'Login',
                 onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => const Home()));
+                  Navigator.pushNamed(context, Routes.home);
                 },
                 horizontal: 100,
                 vertical: 12,
