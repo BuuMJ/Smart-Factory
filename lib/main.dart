@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_factory/pages/admin/account.dart';
 import 'package:smart_factory/pages/admin/data.dart';
 import 'package:smart_factory/pages/admin/home.dart';
 import 'package:smart_factory/pages/login.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
           Routes.login: (context) => const Login(),
           Routes.home: (context) => const Home(),
           Routes.data: (context) => const Data(),
+          Routes.account: (context) => const Account(),
         });
   }
 }

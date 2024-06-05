@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smart_factory/components/LogOutButton.dart';
-import 'package:smart_factory/constants/colors.dart';
 import 'package:smart_factory/routes/routes.dart';
 
 class SideMenu extends StatefulWidget {
@@ -52,14 +51,22 @@ class _SideMenuState extends State<SideMenu> {
                               'Thông báo', 'assets/notifications.png',
                               onTap: () {
                             Navigator.pop(context);
+                            Scaffold.of(context).closeDrawer();
                           }),
                           itemDropDownMenu(
                               'Đồng bộ dữ liệu', 'assets/merge_data.png',
                               onTap: () {
                             Navigator.pushNamed(context, Routes.data);
+                            Scaffold.of(context).closeDrawer();
                           }),
                           itemDropDownMenu(
-                              'Thông tin tài khoản', 'assets/account.png'),
+                            'Thông tin tài khoản',
+                            'assets/account.png',
+                            onTap: () {
+                              Navigator.pushNamed(context, Routes.account);
+                              Scaffold.of(context).closeDrawer();
+                            },
+                          ),
                         ],
                         'assets/admin.png'),
                     const SizedBox(

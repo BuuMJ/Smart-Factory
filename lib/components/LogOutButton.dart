@@ -23,12 +23,12 @@ class LogoutButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
+            Icon(
               Icons.logout,
               size: 20,
               color: Colors.black,
             ),
-            const SizedBox(width: 6),
+            SizedBox(width: 6),
             Text(
               'Đăng Xuất',
               style: TextStyle(

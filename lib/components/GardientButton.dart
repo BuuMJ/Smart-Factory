@@ -9,12 +9,12 @@ class Gardientbutton extends StatelessWidget {
   final double vertical;
 
   const Gardientbutton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
     this.horizontal = 12.0,
     this.vertical = 6.0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

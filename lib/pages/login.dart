@@ -11,7 +11,7 @@ class Login extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: bgColor,
         title: Center(
           child: Image.asset("assets/logofti.png", height: 120, width: 120),
         ),
@@ -23,52 +23,53 @@ class Login extends StatelessWidget {
         height: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: 60),
         child: SingleChildScrollView(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Image.asset(
-              'assets/loginbackground.png',
-              width: double.infinity,
-              height: height / 2.5,
-            ),
-            Text(
-              'Smart Factory'.toUpperCase(),
-              style: const TextStyle(
-                color: mainColor,
-                fontSize: 30,
-                fontWeight: FontWeight.w800,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(
+                'assets/loginbackground.png',
+                width: double.infinity,
+                height: height / 2.5,
               ),
-            ),
-            const SizedBox(height: 40),
-            textFormFieldMethod(
-                "User ID",
-                const Icon(
-                  Icons.person,
-                  size: 30,
+              Text(
+                'Smart Factory'.toUpperCase(),
+                style: const TextStyle(
+                  color: mainColor,
+                  fontSize: 30,
+                  fontWeight: FontWeight.w800,
                 ),
-                'Enter Your User ID'),
-            const SizedBox(height: 20),
-            textFormFieldMethod(
-                "Password",
-                const Icon(
-                  Icons.lock,
-                  size: 30,
-                ),
-                'Enter Your Password'),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              child: Gardientbutton(
-                text: 'Login',
-                onPressed: () {
-                  Navigator.pushNamed(context, Routes.home);
-                },
-                horizontal: 100,
-                vertical: 12,
               ),
-            ),
-          ],
-        )),
+              const SizedBox(height: 40),
+              textFormFieldMethod(
+                  "User ID",
+                  const Icon(
+                    Icons.person,
+                    size: 30,
+                  ),
+                  'Enter Your User ID'),
+              const SizedBox(height: 20),
+              textFormFieldMethod(
+                  "Password",
+                  const Icon(
+                    Icons.lock,
+                    size: 30,
+                  ),
+                  'Enter Your Password'),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                child: Gardientbutton(
+                  text: 'Login',
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.home);
+                  },
+                  horizontal: 100,
+                  vertical: 12,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
