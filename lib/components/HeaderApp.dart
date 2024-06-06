@@ -23,7 +23,7 @@ class HeaderApp extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
         centerTitle: true,
         backgroundColor: bgColor,
-        toolbarHeight: 120,
+        toolbarHeight: 80,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios_new_rounded,
@@ -43,5 +43,5 @@ class HeaderApp extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(120);
+  Size get preferredSize => const Size.fromHeight(80);
 }

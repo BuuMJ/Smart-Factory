@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_factory/components/LogOutButton.dart';
+import 'package:smart_factory/pages/seeds/qr_code.dart';
 import 'package:smart_factory/routes/routes.dart';
 
 class SideMenu extends StatefulWidget {
@@ -72,11 +73,22 @@ class _SideMenuState extends State<SideMenu> {
                     const SizedBox(
                       height: 20,
                     ),
-                    menuSideBar('Danh mục máy', 'assets/machine_catelog.png'),
+                    menuSideBar(
+                      'Danh mục máy',
+                      'assets/machine_catelog.png',
+                      onPressed: () {
+                        Navigator.pushNamed(context, Routes.listMachine);
+                        Scaffold.of(context).closeDrawer();
+                      },
+                    ),
                     const SizedBox(
                       height: 20,
                     ),
-                    menuSideBar('Danh sách nhân viên', 'assets/list_staff.png'),
+                    menuSideBar('Danh sách nhân viên', 'assets/list_staff.png',
+                        onPressed: () {
+                      Navigator.pushNamed(context, Routes.listUser);
+                      Scaffold.of(context).closeDrawer();
+                    }),
                     const SizedBox(
                       height: 20,
                     ),
@@ -87,9 +99,16 @@ class _SideMenuState extends State<SideMenu> {
                         padTop,
                         [
                           itemDropDownMenu(
-                              'Điện năng máy', 'assets/machine_power.png'),
+                              'Điện năng máy', 'assets/machine_power.png',
+                              onTap: () {
+                            Navigator.pushNamed(context, Routes.machinePower);
+                            Scaffold.of(context).closeDrawer();
+                          }),
                           itemDropDownMenu('Báo cáo tiêu thụ điện năng',
-                              'assets/power_report.png'),
+                              'assets/power_report.png', onTap: () {
+                            Navigator.pushNamed(context, Routes.reportPower);
+                            Scaffold.of(context).closeDrawer();
+                          }),
                         ],
                         'assets/power_manager.png'),
                     const SizedBox(
@@ -102,11 +121,23 @@ class _SideMenuState extends State<SideMenu> {
                         padTop,
                         [
                           itemDropDownMenu(
-                              'Năng suất máy', 'assets/productive_machine.png'),
+                              'Năng suất máy', 'assets/productive_machine.png',
+                              onTap: () {
+                            Navigator.pushNamed(context, Routes.productivity);
+                            Scaffold.of(context).closeDrawer();
+                          }),
                           itemDropDownMenu('Báo cáo theo dõi năng suất máy',
-                              'assets/power_report.png'),
+                              'assets/power_report.png', onTap: () {
+                            Navigator.pushNamed(
+                                context, Routes.reportProductivity);
+                            Scaffold.of(context).closeDrawer();
+                          }),
                           itemDropDownMenu('Báo cáo tổng hợp năng suất máy',
-                              'assets/power_report.png'),
+                              'assets/power_report.png', onTap: () {
+                            Navigator.pushNamed(
+                                context, Routes.reportTotalProductivity);
+                            Scaffold.of(context).closeDrawer();
+                          }),
                         ],
                         'assets/productivity_management.png'),
                     const SizedBox(
@@ -119,9 +150,17 @@ class _SideMenuState extends State<SideMenu> {
                         padTop,
                         [
                           itemDropDownMenu(
-                              'In mã QR Code', 'assets/scan_qrcode.png'),
-                          itemDropDownMenu('Truy xuất nguồn gốc',
-                              'assets/search_origin.png'),
+                              'In mã QR Code', 'assets/scan_qrcode.png',
+                              onTap: () {
+                            Navigator.pushNamed(context, Routes.qrCode);
+                            Scaffold.of(context).closeDrawer();
+                          }),
+                          itemDropDownMenu(
+                              'Truy xuất nguồn gốc', 'assets/search_origin.png',
+                              onTap: () {
+                            Navigator.pushNamed(context, Routes.seekSeeds);
+                            Scaffold.of(context).closeDrawer();
+                          }),
                         ],
                         'assets/info_machine.png'),
                     const SizedBox(
@@ -133,10 +172,15 @@ class _SideMenuState extends State<SideMenu> {
                         padLeft,
                         padTop,
                         [
-                          itemDropDownMenu('Kế hoạch bảo trì',
-                              'assets/maintenance_plan.png'),
+                          itemDropDownMenu(
+                              'Kế hoạch bảo trì', 'assets/maintenance_plan.png',
+                              onTap: () {
+                            Scaffold.of(context).closeDrawer();
+                          }),
                           itemDropDownMenu('Báo cáo tổng hợp bảo trì tài sản',
-                              'assets/power_report.png'),
+                              'assets/power_report.png', onTap: () {
+                            Scaffold.of(context).closeDrawer();
+                          }),
                         ],
                         'assets/maintenance_machine.png'),
                   ],

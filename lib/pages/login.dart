@@ -46,20 +46,20 @@ class Login extends StatelessWidget {
                     Icons.person,
                     size: 30,
                   ),
-                  'Enter Your User ID'),
+                  'Nhập User ID của bạn'),
               const SizedBox(height: 20),
               textFormFieldMethod(
-                  "Password",
+                  "Mật khẩu",
                   const Icon(
                     Icons.lock,
                     size: 30,
                   ),
-                  'Enter Your Password'),
+                  'Nhập mật khẩu của bạn'),
               const SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,
                 child: Gardientbutton(
-                  text: 'Login',
+                  text: 'Đăng nhập'.toUpperCase(),
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.home);
                   },

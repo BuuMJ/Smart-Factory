@@ -4,10 +4,7 @@ import 'package:smart_factory/constants/colors.dart';
 class NavInfoUser extends StatelessWidget {
   const NavInfoUser({
     super.key,
-    required this.bgColor,
   });
-
-  final Color bgColor;
 
   @override
   Widget build(BuildContext context) {

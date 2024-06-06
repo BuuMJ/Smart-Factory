@@ -6,3 +6,4 @@ const Color thirdColor = Color(0xff313da4);
 const Color bgColor = Colors.white;
 const Color bgItemColor = Color(0xffE4ECEC);
 const Color readInput = Color(0xffC4CCCC);
+const Color fieldInput = Colors.white;

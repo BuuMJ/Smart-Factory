@@ -7,14 +7,15 @@ Row buildTextFieldRow({
   String hintText = 'Default Hint Text',
   String? valueQR,
   final IconData? icon,
+  double width = 100,
 }) {
-  Color? fillColor = isEnable ? Colors.white : readInput;
+  Color? fillColor = isEnable ? fieldInput : readInput;
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
-        width: 100,
-        margin: const EdgeInsets.all(10),
+        width: width,
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         child: Text(
           labelText,
           style: const TextStyle(fontWeight: FontWeight.bold),
@@ -23,7 +24,7 @@ Row buildTextFieldRow({
       Expanded(
         child: Container(
           height: 45,
-          margin: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
           child: TextField(
             enabled: isEnable,
             decoration: InputDecoration(

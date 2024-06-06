@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_factory/components/Button.dart';
 import 'package:smart_factory/components/LogOutButton.dart';
 import 'package:smart_factory/components/NavbarInforUser.dart';
 import 'package:smart_factory/components/SideMenu.dart';
@@ -54,9 +55,7 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const NavInfoUser(
-              bgColor: thirdColor,
-            ),
+            const NavInfoUser(),
             const SizedBox(
               height: 40,
             ),
@@ -90,56 +89,36 @@ class Home extends StatelessWidget {
                         padding: const EdgeInsets.all(8),
                         margin: const EdgeInsets.only(bottom: 12),
                         child: ListTile(
-                          title: Text(
-                            notificationData[index].title,
-                            style: const TextStyle(
-                              color: mainColor,
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(
-                                height: 8,
-                              ),
-                              span('Mã máy: ',
-                                  notificationData[index].machineCode),
-                              const SizedBox(
-                                height: 8,
-                              ),
-                              span('Ngày bảo trì: ',
-                                  notificationData[index].maintenanceDate),
-                              const SizedBox(
-                                height: 8,
-                              ),
-                              span('Nội dung: ',
-                                  notificationData[index].content),
-                            ],
-                          ),
-                          trailing: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: secondColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                side: const BorderSide(
-                                    color: Colors.grey), // Đường viền của nút
+                            title: Text(
+                              notificationData[index].title,
+                              style: const TextStyle(
+                                color: mainColor,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            child: const Text(
-                              'Chi Tiết',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                span('Mã máy: ',
+                                    notificationData[index].machineCode),
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                span('Ngày bảo trì: ',
+                                    notificationData[index].maintenanceDate),
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                span('Nội dung: ',
+                                    notificationData[index].content),
+                              ],
                             ),
-                            onPressed: () {
-                              // Xử lý sự kiện khi nút được nhấn
-                              // Ví dụ: mở một hộp thoại, thực hiện một hành động, vv.
-                            },
-                          ),
-                        ),
+                            trailing:
+                                Button(text: 'Chi tiết', onPressed: () {})),
                       );
                     },
                   ),

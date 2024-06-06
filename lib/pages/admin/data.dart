@@ -25,6 +25,36 @@ class Data extends StatelessWidget {
       MergeDataItem(
         title: 'Đồng Bộ Dữ Liệu 5',
       ),
+      MergeDataItem(
+        title: 'Đồng Bộ Dữ Liệu 6',
+      ),
+      MergeDataItem(
+        title: 'Đồng Bộ Dữ Liệu 7',
+      ),
+      MergeDataItem(
+        title: 'Đồng Bộ Dữ Liệu 8',
+      ),
+      MergeDataItem(
+        title: 'Đồng Bộ Dữ Liệu 9',
+      ),
+      MergeDataItem(
+        title: 'Đồng Bộ Dữ Liệu 10',
+      ),
+      MergeDataItem(
+        title: 'Đồng Bộ Dữ Liệu 11',
+      ),
+      MergeDataItem(
+        title: 'Đồng Bộ Dữ Liệu 12',
+      ),
+      MergeDataItem(
+        title: 'Đồng Bộ Dữ Liệu 13',
+      ),
+      MergeDataItem(
+        title: 'Đồng Bộ Dữ Liệu 14',
+      ),
+      MergeDataItem(
+        title: 'Đồng Bộ Dữ Liệu 15',
+      ),
     ];
     return Scaffold(
       appBar: HeaderApp(
@@ -43,9 +73,7 @@ class Data extends StatelessWidget {
         height: double.infinity,
         child: Column(
           children: [
-            const NavInfoUser(
-              bgColor: thirdColor,
-            ),
+            const NavInfoUser(),
             const SizedBox(
               height: 40,
             ),
