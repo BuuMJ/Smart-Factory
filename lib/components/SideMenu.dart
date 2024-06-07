@@ -175,10 +175,14 @@ class _SideMenuState extends State<SideMenu> {
                           itemDropDownMenu(
                               'Kế hoạch bảo trì', 'assets/maintenance_plan.png',
                               onTap: () {
+                            Navigator.pushNamed(
+                                context, Routes.planMaintenance);
                             Scaffold.of(context).closeDrawer();
                           }),
                           itemDropDownMenu('Báo cáo tổng hợp bảo trì tài sản',
                               'assets/power_report.png', onTap: () {
+                            Navigator.pushNamed(
+                                context, Routes.reportMaintenance);
                             Scaffold.of(context).closeDrawer();
                           }),
                         ],

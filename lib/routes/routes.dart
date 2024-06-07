@@ -15,4 +15,6 @@ class Routes {
       'manager_productivity/report_total_productivity';
   static const String qrCode = 'seeds/qr_code';
   static const String seekSeeds = 'seeds/seek_seeds';
+  static const String planMaintenance = 'maintenance/plan_maintenance';
+  static const String reportMaintenance = 'maintenance/report_maintenance';
 }

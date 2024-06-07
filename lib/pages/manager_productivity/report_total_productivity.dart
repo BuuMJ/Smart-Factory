@@ -22,6 +22,12 @@ class _ReportTotalProductivityState extends State<ReportTotalProductivity> {
     Machine(name: 'Máy E', sp: 100),
     Machine(name: 'Máy F', sp: 90),
   ];
+  double get maxMachineValue {
+    double maxVal = machines.map((e) => e.sp).reduce((a, b) => a > b ? a : b);
+    return maxVal +
+        10; // Tăng thêm một chút để đảm bảo phần nền có đủ chiều cao
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,86 +63,92 @@ class _ReportTotalProductivityState extends State<ReportTotalProductivity> {
                 ),
               ),
               const SizedBox(height: 20),
-              Container(
-                padding: const EdgeInsets.all(16.0),
-                child: SizedBox(
-                  height: 400,
-                  child: BarChart(
-                    BarChartData(
-                      alignment: BarChartAlignment.spaceBetween,
-                      barGroups: machines.asMap().entries.map((entry) {
-                        int index = entry.key;
-                        Machine machine = entry.value;
-
-                        return BarChartGroupData(
-                          x: index,
-                          barsSpace: 4,
-                          barRods: [
-                            BarChartRodData(
-                              toY: machine.sp,
-                              gradient: const LinearGradient(
-                                colors: [
-                                  Colors.lightBlueAccent,
-                                  Colors.blueAccent,
-                                ],
-                              ),
-                              width: 30,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(6),
-                                topRight: Radius.circular(6),
-                              ),
-                              backDrawRodData: BackgroundBarChartRodData(
-                                show: true,
-                                color: Colors.white,
-                                toY: 0,
-                              ),
-                            )
-                          ],
-                          showingTooltipIndicators: [0],
-                        );
-                      }).toList(),
-                      titlesData: FlTitlesData(
-                        leftTitles: AxisTitles(
-                          sideTitles: SideTitles(
-                            showTitles: true,
-                            reservedSize: 40,
-                            getTitlesWidget: (value, meta) {
-                              return Text(
-                                '${value.toInt()}',
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12,
+              StatefulBuilder(builder: (context, setState) {
+                return Container(
+                  padding: const EdgeInsets.all(16.0),
+                  margin: const EdgeInsets.only(top: 40),
+                  child: SizedBox(
+                    height: 500,
+                    child: BarChart(
+                      swapAnimationDuration: const Duration(milliseconds: 750),
+                      swapAnimationCurve: Curves.easeInOutQuint,
+                      BarChartData(
+                        alignment: BarChartAlignment.spaceBetween,
+                        barGroups: machines.asMap().entries.map((entry) {
+                          int index = entry.key;
+                          Machine machine = entry.value;
+                          return BarChartGroupData(
+                            x: index,
+                            barsSpace: 4,
+                            barRods: [
+                              BarChartRodData(
+                                toY: machine.sp,
+                                gradient: const LinearGradient(
+                                  colors: [
+                                    Colors.lightBlueAccent,
+                                    Colors.blueAccent,
+                                  ],
                                 ),
-                              );
-                            },
-                          ),
-                        ),
-                        bottomTitles: AxisTitles(
-                          sideTitles: SideTitles(
-                            showTitles: true,
-                            reservedSize: 40,
-                            getTitlesWidget: (value, meta) {
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: Text(
-                                  machines[value.toInt()].name,
+                                width: 25,
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(6),
+                                  topRight: Radius.circular(6),
+                                ),
+                                backDrawRodData: BackgroundBarChartRodData(
+                                  show: true,
+                                  color: Colors.grey[200],
+                                  toY: maxMachineValue,
+                                ),
+                              )
+                            ],
+                            showingTooltipIndicators: [0],
+                          );
+                        }).toList(),
+                        titlesData: FlTitlesData(
+                          leftTitles: AxisTitles(
+                            sideTitles: SideTitles(
+                              showTitles: true,
+                              reservedSize: 40,
+                              getTitlesWidget: (value, meta) {
+                                return Text(
+                                  '${value.toInt()}',
                                   style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 12,
                                   ),
-                                ),
-                              );
-                            },
+                                );
+                              },
+                            ),
+                          ),
+                          topTitles: const AxisTitles(
+                              sideTitles: SideTitles(showTitles: false)),
+                          bottomTitles: AxisTitles(
+                            sideTitles: SideTitles(
+                              showTitles: true,
+                              reservedSize: 40,
+                              getTitlesWidget: (value, meta) {
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Text(
+                                    machines[value.toInt()].name,
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
                           ),
                         ),
+                        borderData: FlBorderData(show: false),
+                        gridData: const FlGridData(show: false),
                       ),
-                      borderData: FlBorderData(show: false),
-                      gridData: const FlGridData(show: true),
                     ),
                   ),
-                ),
-              ),
+                );
+              }),
             ],
           ),
         ),

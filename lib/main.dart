@@ -4,6 +4,8 @@ import 'package:smart_factory/pages/list_user.dart';
 import 'package:smart_factory/pages/admin/account/password.dart';
 import 'package:smart_factory/pages/admin/data.dart';
 import 'package:smart_factory/pages/admin/home.dart';
+import 'package:smart_factory/pages/maintenance/plan_maintenance.dart';
+import 'package:smart_factory/pages/maintenance/report_maintenance.dart';
 import 'package:smart_factory/pages/manager_power/machine_power.dart';
 import 'package:smart_factory/pages/list_machine.dart';
 import 'package:smart_factory/pages/login.dart';
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
+        theme: ThemeData(fontFamily: 'Aptos'),
         routes: {
           Routes.login: (context) => const Login(),
           Routes.home: (context) => const Home(),
@@ -44,6 +47,8 @@ class MyApp extends StatelessWidget {
               const ReportTotalProductivity(),
           Routes.qrCode: (context) => const QrCode(),
           Routes.seekSeeds: (context) => const SeekSeeds(),
+          Routes.planMaintenance: (context) => const PlanMaintenance(),
+          Routes.reportMaintenance: (context) => const ReportMaintenance(),
         });
   }
 }
